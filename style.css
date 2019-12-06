@@ -1,0 +1,88 @@
+*
+{
+  margin: 0;
+  padding: 0;
+}
+:root
+{
+  --maincolor:white;
+}
+body
+{
+  font-family: 'Orbitron', sans-serif;
+  background-image:linear-gradient( 135deg, #EEAD92 10%, #6018DC 100%);
+  background-repeat: no-repeat;
+  color:var(--maincolor);
+  max-width: 100vw;
+  height:100vh;
+}
+
+.container
+{
+  display: grid;
+  /* grid-template-columns: repeat(autofit,minmax(320px,1fr)); */
+  grid-template-columns: repeat(2,minmax(320px,1fr));
+  grid-auto-rows: minmax(200px,auto);
+  grid-gap:10px;
+  max-width: 960px;
+  margin: 0 auto;
+  /* background-color: rgb(199, 183, 242); */
+  grid-template-areas:
+    " . ."
+    " description icon"
+    " location temperature";
+}
+
+.location
+{
+  grid-area:location;
+  /* background-color: rgb(199, 183, 242); */
+  padding: 2rem;
+  text-align: center;
+  align-self: center;
+  text-transform: uppercase;
+}
+.location > h1
+{
+  font-size: 6rem;
+}
+
+.icon
+{
+  /* background-color: rgb(199, 183, 242); */
+  grid-area:icon;
+  padding: 2rem;
+  align-self: center;
+  justify-self:center;
+}
+
+.temperature
+{
+  grid-area:temperature;
+  /* background-color: rgb(199, 183, 242); */
+  padding: 2rem;
+  align-self: center;
+  display: flex;
+  justify-content: center;
+}
+.temperature > h2
+{
+  padding: 0 1vw;
+  font-size: 3rem;
+}
+.temperature span
+{
+  font-size: 1.5rem;
+}
+.description
+{
+  grid-area:description;
+  align-self: center;
+  /* background-color: rgb(199, 183, 242); */
+  padding: 2rem;
+}
+.description > h3
+{
+  font-size: 2rem;
+  letter-spacing: 0.4vw;
+}
