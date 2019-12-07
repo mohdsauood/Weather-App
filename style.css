@@ -28,8 +28,9 @@ body
   margin: 0 auto;
   /* background-color: rgb(199, 183, 242); */
   grid-template-areas:
-    " . ."
+    ". ."
     " description icon"
+    "time time"
     " location temperature";
 }
 
@@ -85,4 +86,21 @@ body
 {
   font-size: 2rem;
   letter-spacing: 0.4vw;
+}
+.time
+{
+  grid-area:time;
+  align-self: center;
+  padding: 2rem;
+}
+.time > h4
+{
+  font-size: 3.6rem;
+  text-align: center;
+  padding: 1rem;
+}
+.time > h3
+{
+  font-size: 2.5rem;
+  text-align: center;
 }
