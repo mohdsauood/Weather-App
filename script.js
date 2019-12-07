@@ -43,12 +43,12 @@ function setTime()
 if(hours>12)
 {
   printHour.innerHTML=hours-12;
-  printMinutes.innerHTML=minutes;
+  printMinutes.innerHTML="0"+minutes;
   printAmpm.innerHTML="pm";
 }
 else {
   printHour.innerHTML=hours;
-  printMinutes.innerHTML=minutes;
+  printMinutes.innerHTML="0"+minutes;
   printAmpm.innerHTML="am";
 }
 }
@@ -57,15 +57,13 @@ setTime();
 
 //setting lat and longitude
 
-const long;
-const lat;
 
 if(navigator.geolocation)
 {
   navigator.geolocation.getCurrentPosition(position =>
     {
-    long = position.coords.longitude;
-    lat = position.coords.latitude;
+    const long = position.coords.longitude;
+    const lat = position.coords.latitude;
   });
 }
 
