@@ -56,7 +56,10 @@ else {
 setTime();
 
 //setting lat and longitude
-
+const description=document.querySelector('.description');
+const temperaturee=document.querySelector('.temperature h2');
+const location=document.querySelector('.location');
+const icon=document.querySelector('.icon canvas');
 
 if(navigator.geolocation)
 {
@@ -64,6 +67,22 @@ if(navigator.geolocation)
     {
     const long = position.coords.longitude;
     const lat = position.coords.latitude;
+    const proxy = "https://cors-anywhere.herokuapp.com/";
+    const api=`${proxy}https://api.darksky.net/forecast/263e85b0709ada62033873f288aec627/${lat},${long}`;
+
+    fetch(api)
+      .then(response =>
+      {
+        return response.json();
+      })
+      .then(data =>
+      {
+        const{temperature , summary} = data.currently;
+        //set DOM elements
+        temperaturee.textContent=temperature;
+        description.textContent=summary;
+        location.textContent=data.timezone;
+      });
   });
 }
 
