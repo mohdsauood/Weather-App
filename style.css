@@ -30,22 +30,8 @@ body
   grid-template-areas:
     ". ."
     " description icon"
-    "time time"
-    " location temperature";
-}
-
-.location
-{
-  grid-area:location;
-  /* background-color: rgb(199, 183, 242); */
-  padding: 2rem;
-  text-align: center;
-  align-self: center;
-  text-transform: uppercase;
-}
-.location > h1
-{
-  font-size: 6rem;
+    "temperature temperature"
+    " time time";
 }
 
 .icon
@@ -74,7 +60,12 @@ body
 }
 .temperature span
 {
-  font-size: 1.5rem;
+  font-size: 1.9rem;
+}
+.temperature h3
+{
+  font-size: 3rem;
+  padding-left: .9vw;
 }
 .description
 {
@@ -85,8 +76,8 @@ body
 }
 .description > h3
 {
-  font-size: 2rem;
-  letter-spacing: 0.4vw;
+  font-size: 2.2rem;
+
 }
 .time
 {
@@ -99,9 +90,12 @@ body
   font-size: 3.6rem;
   text-align: center;
   padding: 1rem;
+  letter-spacing: 1.5vw;
+  text-transform: uppercase;
 }
 .time > h3
 {
   font-size: 2.5rem;
   text-align: center;
+  letter-spacing: 1.7vw;
 }
