@@ -43,12 +43,12 @@ function setTime()
 if(hours>12)
 {
   printHour.innerHTML=hours-12;
-  printMinutes.innerHTML="0"+minutes;
+  printMinutes.innerHTML=minutes;
   printAmpm.innerHTML="pm";
 }
 else {
   printHour.innerHTML=hours;
-  printMinutes.innerHTML="0"+minutes;
+  printMinutes.innerHTML=minutes;
   printAmpm.innerHTML="am";
 }
 }
@@ -59,8 +59,10 @@ setTime();
 const description=document.querySelector('.description');
 const temperaturee=document.querySelector('.temperature h2');
 const location=document.querySelector('.location');
-const icon=document.querySelector('.icon canvas');
+const hicon=document.querySelector('.icon canvas');
+const measurementButton=document.querySelector('.temperature');
 
+const measurement=document.querySelector('.temperature span');
 if(navigator.geolocation)
 {
   navigator.geolocation.getCurrentPosition(position =>
@@ -77,16 +79,42 @@ if(navigator.geolocation)
       })
       .then(data =>
       {
-        const{temperature , summary} = data.currently;
+        const{temperature , summary, icon} = data.currently;
         //set DOM elements
         temperaturee.textContent=temperature;
         description.textContent=summary;
         location.textContent=data.timezone;
+
+        (temperaturee - 32) * (5/9);
+        // set icon
+        setIcons(icon,hicon);
+
+        //convert to celcius
+
+        measurementButton.addEventListener('click',()=>{
+          if(measurement.textContent === "F")
+          {
+            measurement.textContent = "C";
+            temperaturee.textContent=Math.floor((temperature - 32) * (5/9));
+          }
+          else
+          {
+            measurement.textContent = "F";
+            temperaturee.textContent=temperature;
+          }
+        })
       });
   });
+
 }
 
-
+function setIcons(icon,iconID)
+{
+  const skycons = new Skycons({color:'white'});
+  const currentIcon = icon.replace(/-/g,"_").toUpperCase();
+  skycons.play();
+  return skycons.set(iconID,Skycons[currentIcon]);
+}
 
 
 
