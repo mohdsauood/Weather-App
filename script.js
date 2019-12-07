@@ -46,19 +46,25 @@ if(hours>12)
   printMinutes.innerHTML=minutes;
   printAmpm.innerHTML="pm";
 }
+else if(hours==0)
+{
+  printHour.innerHTML=12;
+  printMinutes.innerHTML=minutes;
+  printAmpm.innerHTML="mid night";
+}
 else {
   printHour.innerHTML=hours;
   printMinutes.innerHTML=minutes;
   printAmpm.innerHTML="am";
 }
+
 }
 
 setTime();
 
 //setting lat and longitude
-const description=document.querySelector('.description');
+const description=document.querySelector('.description h3');
 const temperaturee=document.querySelector('.temperature h2');
-const location=document.querySelector('.location');
 const hicon=document.querySelector('.icon canvas');
 const measurementButton=document.querySelector('.temperature');
 
@@ -83,7 +89,7 @@ if(navigator.geolocation)
         //set DOM elements
         temperaturee.textContent=temperature;
         description.textContent=summary;
-        location.textContent=data.timezone;
+
 
         (temperaturee - 32) * (5/9);
         // set icon
