@@ -12,7 +12,7 @@ let printAmpm=document.querySelector('.amorpm');
 let date = new Date();
 let dayNum = date.getDay();
 let hours = date.getHours();
-let minutes = date.getMinutes();
+let minutes = mainhours(date.getMinutes());
 
 //set Day
 switch (dayNum) {
@@ -36,6 +36,13 @@ switch (dayNum) {
     break;
   case 6:
    printDay.innerHTML  = "Saturday";
+}
+function mainhours(value) {
+    if(value < 10) {
+        return '0' + value;
+    } else {
+        return value;
+    }
 }
 //set hours
 function setTime()
