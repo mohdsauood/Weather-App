@@ -129,3 +129,120 @@ footer a
   text-decoration: none;
   color: inherit;
 }
+
+/* media queries*/
+@media (max-width:480px) {
+  canvas
+  {
+    width: 150px;
+    height: 150px;
+  }
+  .container
+  {
+    display: grid;
+    /* grid-template-columns: repeat(autofit,minmax(320px,1fr)); */
+    grid-template-columns: repeat(1,minmax(200px,1fr));
+    grid-auto-rows: minmax(50px,auto);
+    max-width: 100vw;
+    margin: 0 auto;
+    /* background-color: rgb(199, 183, 242); */
+    grid-template-areas:
+      "icon icon"
+      " description description"
+      "temperature temperature"
+      "alert alert"
+      " time time";
+  }
+
+  .icon
+  {
+    /* background-color: rgb(199, 183, 242); */
+    grid-area:icon;
+    padding:0 rem;
+    align-self: center;
+    justify-self:center;
+  }
+
+  .temperature
+  {
+    grid-area:temperature;
+    /* background-color: rgb(199, 183, 242); */
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    cursor: pointer;
+    padding-top: 1vw;
+  }
+  .temperature > h2
+  {
+    padding: 0 1vw;
+    font-size: 2.5 rem;
+  }
+  .temperature span
+  {
+    font-size: 1.5rem;
+  }
+  .temperature h3
+  {
+    font-size: 2.5 rem;
+    padding-left: .9vw;
+  }
+  .alert
+  {
+    font-size: 1.2rem;
+    grid-area:alert;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 1.4vw;
+    align-self:start;
+  }
+
+
+  .description
+  {
+    grid-area:description;
+    align-self: center;
+    /* background-color: rgb(199, 183, 242); */
+    padding: 2rem;
+  }
+  .description > h3
+  {
+    font-size: 10vmin;
+    text-align: center;
+  }
+  .time
+  {
+    grid-area:time;
+    align-self: center;
+    padding: 2rem;
+  }
+  .time > h4
+  {
+    font-size: 1.5rem;
+    text-align: center;
+    padding: 0rem;
+    letter-spacing: 1.5vw;
+    text-transform: uppercase;
+  }
+  .time > h3
+  {
+    font-size: 1.5rem;
+    text-align: center;
+    letter-spacing: 1.7vw;
+  }
+
+  footer
+  {
+    position: absolute;
+    bottom:0vw;
+    text-align: center;
+    width: 100vw;
+    font-size: 1rem;
+    letter-spacing: .3vw;
+  }
+  footer a
+  {
+    text-decoration: none;
+    color: inherit;
+  }
+}
