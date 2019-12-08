@@ -68,7 +68,7 @@ const temperaturee=document.querySelector('.temperature h2');
 const hicon=document.querySelector('.icon canvas');
 const measurementButton=document.querySelector('.temperature');
 const measurement=document.querySelector('.temperature span');
-const alertt=document.querySelector('.temperature h5');
+const alertt=document.querySelector('.alert');
 if(navigator.geolocation)
 {
   navigator.geolocation.getCurrentPosition(position =>
