@@ -11,10 +11,15 @@ body
 {
   font-family: 'Orbitron', sans-serif;
   background-image:linear-gradient( 135deg, #EEAD92 10%, #6018DC 100%);
-  background-repeat: no-repeat;
   color:var(--maincolor);
   max-width: 100vw;
   height:100vh;
+  transition-timing-function: ease;
+  transition-duration: 6s;
+  transition-property: background-image;
+  /* color transition css */
+  /* background-color: #eead92;
+background-image: linear-gradient(294deg, #eead92 10%, #6018dc 100%); */
 }
 
 .container
@@ -67,6 +72,10 @@ body
   font-size: 3rem;
   padding-left: .9vw;
 }
+.temperature h5
+{
+
+}
 .description
 {
   grid-area:description;
@@ -98,4 +107,25 @@ body
   font-size: 2.5rem;
   text-align: center;
   letter-spacing: 1.7vw;
+}
+
+/* background transition */
+
+@keyframes color-transition {
+	0% {
+		background-color: #4C6085;
+		border-color: #4C6085;
+	}
+	33% {
+		background-color: #80D39B;
+		border-color: #80D39B;
+	}
+	66% {
+		background-color: #BE3E82;
+		border-color: #BE3E82;
+	}
+	100% {
+		background-color: #4C6085;
+		border-color: #4C6085;
+	}
 }
