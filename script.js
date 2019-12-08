@@ -67,8 +67,8 @@ const description=document.querySelector('.description h3');
 const temperaturee=document.querySelector('.temperature h2');
 const hicon=document.querySelector('.icon canvas');
 const measurementButton=document.querySelector('.temperature');
-
 const measurement=document.querySelector('.temperature span');
+const alertt=document.querySelector('.temperature h5');
 if(navigator.geolocation)
 {
   navigator.geolocation.getCurrentPosition(position =>
@@ -102,11 +102,13 @@ if(navigator.geolocation)
           {
             measurement.textContent = "C";
             temperaturee.textContent=Math.floor((temperature - 32) * (5/9));
+            alertt.textContent="tap for fahrenheit";
           }
           else
           {
             measurement.textContent = "F";
             temperaturee.textContent=temperature;
+            alertt.textContent="tap for celcius";
           }
         })
       });
@@ -121,7 +123,6 @@ function setIcons(icon,iconID)
   skycons.play();
   return skycons.set(iconID,Skycons[currentIcon]);
 }
-
 
 
 
